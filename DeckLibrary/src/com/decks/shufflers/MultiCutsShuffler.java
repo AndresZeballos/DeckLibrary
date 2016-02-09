@@ -1,6 +1,7 @@
 package com.decks.shufflers;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -27,12 +28,17 @@ public class MultiCutsShuffler<T extends Card> implements IDeckShuffler<T> {
 		this.delta = delta;
 	}
 
+	/** 
+	 * Select a random point of the deck, next to the middle to obtain two sub-decks.
+	 * Shuffle the card in both sub-decks proportionally.
+	 * Repeat the steps from minCuts to minCuts + delta times 
+	 */
 	public List<T> deckShuffle(List<T> cards) {
 		ArrayList<T> shuffledCards = new ArrayList<T>(cards);
 		int size = cards.size();
 
 		int cuts = (int) (minCuts + rand.nextDouble() * delta);
-		List<T> shuffled = new ArrayList<>();
+		List<T> shuffled = new LinkedList<>();
 		while (cuts > 0) {
 			int middle = (int) (rand.nextDouble() * size / 3 + size / 2.0);
 			int index1 = 0;

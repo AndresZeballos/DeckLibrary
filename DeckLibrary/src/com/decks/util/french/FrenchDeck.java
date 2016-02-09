@@ -6,6 +6,9 @@ import com.decks.Deck;
 
 public class FrenchDeck extends Deck<FrenchCard> {
 
+	/**
+	 * Create a deck of 52 French cards
+	 */
 	public FrenchDeck() {
 		super();
 		this.deckCards = new ArrayList<FrenchCard>();

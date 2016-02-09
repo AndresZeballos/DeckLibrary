@@ -7,6 +7,7 @@ import com.MTG.deck.MTGCard;
 import com.MTG.deck.MTGDeck;
 import com.MTG.deck.RouletteShuffler;
 import com.MTG.lands.ManaType;
+import com.decks.exceptions.CardNotInDeckException;
 
 public class Player {
 	
@@ -22,7 +23,13 @@ public class Player {
 	}
 	
 	public void startGame(){
-		deck.shuffle(new RouletteShuffler<MTGCard>());
+		try {
+			deck.shuffle(new RouletteShuffler<MTGCard>());
+		} catch (CardNotInDeckException e) {
+			e.printStackTrace();
+		} finally {
+			deck.shuffle();
+		}
 		manaPool.clear();
 	}
 	

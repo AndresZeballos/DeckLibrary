@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import com.decks.SimpleCard;
+import com.decks.exceptions.CardNotInDeckException;
 import com.decks.Deck;
 import com.decks.shufflers.RandomShuffler;
 
@@ -20,8 +21,9 @@ public class RandomShufflerTest {
 		}
 		return cards;
 	}
+
 	@Test
-	public void randomShuffleShouldDoNothingOnEmptyDeck() {
+	public void randomShuffleShouldDoNothingOnEmptyDeck() throws CardNotInDeckException {
 		List<SimpleCard> cards = obtainCards(0);
 		List<SimpleCard> beforeShuffleDeck;
 		Deck<SimpleCard> deck = new Deck<SimpleCard>(cards);
@@ -31,7 +33,7 @@ public class RandomShufflerTest {
 	}
 
 	@Test
-	public void randomShuffleShouldRandomizeIt() {
+	public void randomShuffleShouldRandomizeIt() throws CardNotInDeckException {
 		List<SimpleCard> cards = obtainCards(30);
 		List<SimpleCard> beforeShuffleDeck;
 		Deck<SimpleCard> deck = new Deck<SimpleCard>(cards);
@@ -42,8 +44,9 @@ public class RandomShufflerTest {
 			assertNotEquals(beforeShuffleDeck, deck.getDeckCards());
 		}
 	}
+
 	@Test
-	public void randomShuffleShouldRandomizeTheRemain() {
+	public void randomShuffleShouldRandomizeTheRemain() throws CardNotInDeckException {
 		List<SimpleCard> cards = obtainCards(50);
 		List<SimpleCard> beforeShuffleDeck;
 		Deck<SimpleCard> deck = new Deck<SimpleCard>(cards);

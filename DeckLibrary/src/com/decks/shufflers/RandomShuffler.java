@@ -14,6 +14,9 @@ public class RandomShuffler<T extends Card> implements IShuffler<T> {
 		rand = new Random(12345678);
 	}
 
+	/**
+	 * Uses Random.nextInt() method to return a pseudo-random card from the list
+	 */
 	public T nextCard(List<T> cards) {
 		if (cards.size() > 0) {
 			return cards.get(rand.nextInt(cards.size()));

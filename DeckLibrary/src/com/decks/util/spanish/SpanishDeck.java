@@ -6,6 +6,9 @@ import com.decks.Deck;
 
 public class SpanishDeck extends Deck<SpanishCard> {
 
+	/** 
+	 * Create a deck of 48 Spanish cards
+	 */
 	public SpanishDeck() {
 		super();
 		this.deckCards = new ArrayList<SpanishCard>();
@@ -16,6 +19,12 @@ public class SpanishDeck extends Deck<SpanishCard> {
 		}
 	}
 
+	/**
+	 * Remove all the cards in the deck with the Rank passed 
+	 * This method will be useful in games that not require, for example, the 7's and 8's
+	 * @param rank
+	 * @return
+	 */
 	public boolean removeCards(SpanishRanks rank) {
 		if (rank != null) {
 			boolean result = true;
@@ -29,6 +38,12 @@ public class SpanishDeck extends Deck<SpanishCard> {
 		return false;
 	}
 
+	/**
+	 * Remove all the cards in the deck with the Suit passed
+	 * This method will be useful in games that not needs, for example, the gold's
+	 * @param suit
+	 * @return
+	 */
 	public boolean removeCards(SpanishSuits suit) {
 		if (suit != null) {
 			boolean result = true;
